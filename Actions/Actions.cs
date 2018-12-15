@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//An abstract base class that inherits by many other type of action classes, such as Swingleft, Swingright, SpellCast, etc.
 public abstract class Actions : MonoBehaviour
 {
     protected bool aim = false;
