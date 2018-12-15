@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Functions;
 
+//It is responsible for checking either if it's blocking, and also cast blocking formation
 public class Block : Actions {
 
     public override bool CastAction(Animator A, GameObject Weapon, Player Target)
