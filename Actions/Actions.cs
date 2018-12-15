@@ -13,7 +13,7 @@ public abstract class Actions : MonoBehaviour
     public virtual void Init() { aim = false; DestinationReached = false; RotateSpeed = 200.0f; }
     public virtual bool Blocking(Animator A, GameObject Weapon) { return false; }
 
-
+    //A method that uses by almost all the other subclasses. It makes the character to face directly to its target.
     protected bool Align(Transform Avatar, Transform Target)
     {
         Vector2 TargetDirection = (new Vector2(Target.position.x - Avatar.position.x, Target.position.z - Avatar.position.z)).normalized;
@@ -49,7 +49,8 @@ public abstract class Actions : MonoBehaviour
 
         return false;
     }
-
+    
+    //Convert Unity's limited range of angle using Cos(Angle) (0 - 180) to (0 - 360). Purpose: easier to visualize
     private float ConvertAngle(float orig, float y)
     {
         return y > 0 ? orig : 2 * Mathf.PI - orig;
@@ -60,6 +61,7 @@ public abstract class Actions : MonoBehaviour
         return Degree * (Mathf.PI / 180.0f);
     }
 
+    //A method that uses by almost all the other subclasses. It makes the character runs to its target.
     protected bool RunToTarget(Transform Avatar, Transform Target)
     {
         float Difference = (Avatar.transform.position - Target.transform.position).magnitude;
